@@ -71,6 +71,24 @@ input:focus {
   box-sizing: border-box;
 }
 /*------------------------------------*\
+    MISC
+\*------------------------------------*/
+::selection {
+  background: #04A4CC;
+  color: #FFF;
+  text-shadow: none;
+}
+::-webkit-selection {
+  background: #04A4CC;
+  color: #FFF;
+  text-shadow: none;
+}
+::-moz-selection {
+  background: #04A4CC;
+  color: #FFF;
+  text-shadow: none;
+}
+/*------------------------------------*\
     STRUCTURE
 \*------------------------------------*/
 /* wrapper */
@@ -101,12 +119,6 @@ input:focus {
 /* sidebar */
 /* footer */
 /*------------------------------------*\
-    PAGES
-\*------------------------------------*/
-/*------------------------------------*\
-    IMAGES
-\*------------------------------------*/
-/*------------------------------------*\
 	TYPOGRAPHY
 \*------------------------------------*/
 @font-face {
@@ -119,45 +131,6 @@ input:focus {
 /*------------------------------------*\
     RESPONSIVE
 \*------------------------------------*/
-@media only screen and (min-width: 320px) {
-  
-}
-@media only screen and (min-width: 480px) {
-  
-}
-@media only screen and (min-width: 768px) {
-  
-}
-@media only screen and (min-width: 1024px) {
-  
-}
-@media only screen and (min-width: 1140px) {
-  
-}
-@media only screen and (min-width: 1280px) {
-  
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi) {
-  
-}
-/*------------------------------------*\
-    MISC
-\*------------------------------------*/
-::selection {
-  background: #04A4CC;
-  color: #FFF;
-  text-shadow: none;
-}
-::-webkit-selection {
-  background: #04A4CC;
-  color: #FFF;
-  text-shadow: none;
-}
-::-moz-selection {
-  background: #04A4CC;
-  color: #FFF;
-  text-shadow: none;
-}
 /*------------------------------------*\
     WORDPRESS CORE
 \*------------------------------------*/
@@ -268,7 +241,7 @@ a img.aligncenter {
   img {
     max-width: 100% !important;
   }
-  @page  {
+  @page {
     margin: 0.5cm;
   }
   p,
