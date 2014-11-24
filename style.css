@@ -216,16 +216,62 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+/*!
+ * Preboot v2
+ *
+ * Open sourced under MIT license by @mdo.
+ * Some variables and mixins from Bootstrap (Apache 2 license).
+ */
 /*------------------------------------*\
     STRUCTURE
 \*------------------------------------*/
+.content-main {
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+@media (min-width: 768px) {
+  .content-main {
+    float: left;
+    width: 66.66666667%;
+  }
+}
+.content-sidebar {
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+@media (min-width: 768px) {
+  .content-sidebar {
+    float: left;
+    width: 25%;
+  }
+}
+@media (min-width: 768px) {
+  .content-sidebar {
+    margin-left: 8.33333333%;
+  }
+}
 /* wrapper */
 .wrapper {
-  width: 1200px;
-  margin: 0 auto;
-  position: relative;
-  padding-left: 13px;
-  padding-right: 11px;
+  margin-left: -15px;
+  margin-right: -15px;
+  *zoom: 1;
+}
+.wrapper:before,
+.wrapper:after {
+  content: " ";
+  display: table;
+  line-height: 0;
+}
+.wrapper:after {
+  clear: both;
 }
 /* header */
 /* logo */

@@ -2,13 +2,17 @@
     STRUCTURE
 \*------------------------------------*/
 
+.content-main {
+  .make-column(8);
+}
+.content-sidebar {
+  .make-column(3);
+  .make-column-offset(1);
+}
+
 /* wrapper */
 .wrapper {
-	width:1200px;
-	margin:0 auto;
-	position:relative;
-	padding-left: 13px;
-  padding-right: 11px;
+	.make-row();
 }
 /* header */
 .header {

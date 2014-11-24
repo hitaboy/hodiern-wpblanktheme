@@ -1,17 +1,22 @@
 <?php get_header(); ?>
 	
 	<!-- section -->
-	<section role="main">
-	
-		<h1><?php _e( 'Latest Posts', 'html5blank' ); ?></h1>
-	
-		<?php get_template_part('loop'); ?>
+	<section role="main" class="wrapper">
+		<div class="content-main">	
+			<h1><?php _e( 'Latest Posts', 'html5blank' ); ?></h1>
 		
-		<?php get_template_part('pagination'); ?>
-	
-	</section>
+			<?php get_template_part('loop'); ?>
+			
+			<?php get_template_part('pagination'); ?>
+		</div>
+		
+		<div class="content-sidebar">
+			<?php get_sidebar(); ?>
+  		</div>		
+		
+  	</section>
 	<!-- /section -->
-	
-<?php get_sidebar(); ?>
+		
+
 
 <?php get_footer(); ?>
