@@ -44,7 +44,7 @@
 					<!-- nav -->
 					<nav class="nav" role="navigation">
 						<ul>
-              <?php wp_list_pages('depth=1&title_li='); ?>
+					<?php wp_nav_menu( array('menu' => 'Main menu' )); ?>
             </ul>
 					</nav>
 					<!-- /nav -->
