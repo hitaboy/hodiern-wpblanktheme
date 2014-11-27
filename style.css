@@ -275,12 +275,6 @@ table {
 }
 /* header */
 /* logo */
-.logo {
-  position: relative;
-  float: left;
-  width: 495px;
-  height: 84px;
-}
 /* nav */
 .nav {
   position: relative;

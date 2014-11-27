@@ -125,7 +125,10 @@ function html5blank_styles()
 {
     wp_register_style('normalize', get_template_directory_uri() . '/normalize.css', array(), '1.0', 'all');
     wp_enqueue_style('normalize'); // Enqueue it!
-    
+   
+    wp_register_style('owlstyles', get_template_directory_uri() . '/js/vendor/owl.carousel.2.0.0-beta.2.4/assets/owl.carousel.css', array(), '1.0', 'all');
+    wp_enqueue_style('owlstyles'); // Enqueue it!
+ 
     wp_register_style('html5blank', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
     wp_enqueue_style('html5blank'); // Enqueue it!
 }
