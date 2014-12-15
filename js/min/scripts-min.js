@@ -1,0 +1,1 @@
+$(function(){for(galery in galeries)slides=parseInt(galeries[galery].slides,10),$(".carrusel_"+galeries[galery].class).owlCarousel({loop:!0,margin:10,nav:!0,items:slides,autoHeight:!0});if(!Modernizr.svg)for(var e=document.getElementsByTagName("img"),s=/.*\.svg$/,r=0;r!=e.length;++r)e[r].src.match(s)&&(e[r].src=e[r].src.slice(0,-3)+"png")});

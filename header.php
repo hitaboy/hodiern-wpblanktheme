@@ -19,6 +19,7 @@
 		<!-- css + javascript -->
 		<?php wp_head(); ?>
 		<script>
+		var galeries = new Array();
 		!function(){
 			// configure legacy, retina, touch requirements @ conditionizr.com
 			conditionizr()

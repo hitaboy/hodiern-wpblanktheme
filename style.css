@@ -88,134 +88,6 @@ input:focus {
   color: #FFF;
   text-shadow: none;
 }
-/**
- * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
- * http://cssreset.com
- */
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol,
-ul {
-  list-style: none;
-}
-blockquote,
-q {
-  quotes: none;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: '';
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
 /*!
  * Preboot v2
  *
@@ -225,63 +97,11 @@ table {
 /*------------------------------------*\
     STRUCTURE
 \*------------------------------------*/
-.content-main {
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-@media (min-width: 768px) {
-  .content-main {
-    float: left;
-    width: 66.66666667%;
-  }
-}
-.content-sidebar {
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-@media (min-width: 768px) {
-  .content-sidebar {
-    float: left;
-    width: 25%;
-  }
-}
-@media (min-width: 768px) {
-  .content-sidebar {
-    margin-left: 8.33333333%;
-  }
-}
 /* wrapper */
-.wrapper {
-  margin-left: -15px;
-  margin-right: -15px;
-  *zoom: 1;
-}
-.wrapper:before,
-.wrapper:after {
-  content: " ";
-  display: table;
-  line-height: 0;
-}
-.wrapper:after {
-  clear: both;
-}
 /* header */
 /* nav */
 .nav {
   position: relative;
-  float: right;
-}
-.nav ul li {
-  float: left;
-  margin-right: 10px;
 }
 /* sidebar */
 /* footer */
@@ -294,6 +114,9 @@ table {
   src: url('fonts/font-name.eot?#iefix') format('embedded-opentype'), url('fonts/font-name.woff') format('woff'), url('fonts/font-name.ttf') format('truetype'), url('fonts/font-name.svg#font-name') format('svg');
   font-weight: normal;
   font-style: normal;
+}
+* {
+  font-family: Arial;
 }
 /*------------------------------------*\
     RESPONSIVE
