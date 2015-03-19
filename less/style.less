@@ -2,7 +2,7 @@
 	Theme Name: Hodiern Base Theme
 	Theme URI: http://www.hodiern.com
 	Description: Basat en HTML5 Blank WordPress Theme 
-	Version: 1.0
+	Version: 1.1
 	Author: Pere Esteve (@hitaboy)
 	Author URI: http://www.hodiern.com
 	Tags: HTML5, CSS3
@@ -25,13 +25,21 @@
 	text-rendering:optimizeLegibility;
 }
 /* html element 62.5% font-size for REM use */
-html {
-	font-size:62.5%;
-}
 body {
-	font:300 11px/1.4 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	color:#444;
+    background-color: #f2f2f2;
+    font-family: Lato;
+    font-weight: 300;
+    font-size: 16px;
+    color: #555;
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
 }
+h1, h2, h3, h4, h5, h6 {
+    font-family: Raleway;
+    font-weight: 300;
+    color: #333;
+}
+
 ul { margin:0px; padding: 0px; }
 /* clear */
 .clear:before,
@@ -93,11 +101,15 @@ input:focus {
 
 //@import "reset.less";
 //@import "lesshat-prefixed.less";
-@import "preboot.less";
+@import "normalize.less";
+@import "../css/font-awesome.min.less";
+@import "wordpress_core.less";
+@import "bootstrap.less";
+@import "../js/vendor/owl.carousel.2.0.0-beta.2.4/assets/owl.carousel.less";
+
 @import "structure.less";
 @import "typography.less";
 @import "responsive.less";
-@import "wordpress_core.less";
 @import "print.less";
 
    

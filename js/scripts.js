@@ -13,6 +13,7 @@ $(function() {
 		});	
 	}
 	
+	
 	// SVG fallback
 	// toddmotto.com/mastering-svg-use-for-a-retina-web-fallbacks-with-png-script#update
 	if (!Modernizr.svg) {

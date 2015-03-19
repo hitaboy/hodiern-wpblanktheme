@@ -44,19 +44,9 @@ function my_theme_register_required_plugins() {
 
         // This is an example of how to include a plugin pre-packaged with a theme.
         array(
-            'name'               => 'ACF Repeater', // The plugin name.
-            'slug'               => 'acf-repeater', // The plugin slug (typically the folder name).
-            'source'             => get_template_directory_uri() . '/lib/plugin_activation/plugins/acf-repeater.zip', // The plugin source.
-            'required'           => true, // If false, the plugin is only 'recommended' instead of required.
-            'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher.
-            'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-            'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-            'external_url'       => '', // If set, overrides default API URL and points to an external URL.
-        ),
-        array(
-            'name'               => 'Advanced Custom Fields', // The plugin name.
-            'slug'               => 'advanced-custom-fields', // The plugin slug (typically the folder name).
-            'source'             => get_template_directory_uri() . '/lib/plugin_activation/plugins/advanced-custom-fields.zip', // The plugin source.
+            'name'               => 'ACF PRO', // The plugin name.
+            'slug'               => 'advanced-custom-fields-pro', // The plugin slug (typically the folder name).
+            'source'             => get_template_directory_uri() . '/lib/plugin_activation/plugins/advanced-custom-fields-pro.zip', // The plugin source.
             'required'           => true, // If false, the plugin is only 'recommended' instead of required.
             'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher.
             'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
@@ -128,6 +118,7 @@ function my_theme_register_required_plugins() {
 
 <?php 
 // CREACIÓ DE GALERIES
+
 if(function_exists("register_field_group"))
 {
 	register_field_group(array (
@@ -203,9 +194,9 @@ if(function_exists("register_field_group"))
 		'menu_order' => 0,
 	));
 }
-	
-	
-	?>
+
+?>
+
 <?php
 /*
  *  Author: Pere esteve | @hitaboy
@@ -301,20 +292,18 @@ function hodiern_header_scripts()
     if (!is_admin()) {
     
     	wp_deregister_script('jquery'); // Deregister WordPress jQuery
-    	wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js', array(), '1.9.1'); // Google CDN jQuery
-    	wp_enqueue_script('jquery'); // Enqueue it!
-   
-    	wp_register_script('owlcarrousel', get_template_directory_uri() . '/js/vendor/owl.carousel.2.0.0-beta.2.4/owl.carousel.min.js', array(), '2.0.0-beta.2.4'); // Enqueue it!
-    	wp_enqueue_script('owlcarrousel'); // Enqueue it!
 
-	
+/*	
     	wp_register_script('conditionizr', 'http://cdnjs.cloudflare.com/ajax/libs/conditionizr.js/2.2.0/conditionizr.min.js', array(), '2.2.0'); // Conditionizr
         wp_enqueue_script('conditionizr'); // Enqueue it!
-        
+*/  
+/*    
         wp_register_script('modernizr', 'http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js', array(), '2.6.2'); // Modernizr
         wp_enqueue_script('modernizr'); // Enqueue it!
         
-        wp_register_script('hodiernscripts', get_template_directory_uri() . '/js/scripts.js', array(), '1.0.0'); // Custom scripts
+        */
+        
+        wp_register_script('hodiernscripts', get_template_directory_uri() . '/js/scripts-min.js', array(), '1.0.0'); // Custom scripts
         wp_enqueue_script('hodiernscripts'); // Enqueue it!
     }
 }
@@ -331,12 +320,6 @@ function hodiern_conditional_scripts()
 // Load HTML5 Blank styles
 function hodiern_styles()
 {
-    wp_register_style('normalize', get_template_directory_uri() . '/normalize.css', array(), '1.0', 'all');
-    wp_enqueue_style('normalize'); // Enqueue it!
-   
-    wp_register_style('owlstyles', get_template_directory_uri() . '/js/vendor/owl.carousel.2.0.0-beta.2.4/assets/owl.carousel.css', array(), '1.0', 'all');
-    wp_enqueue_style('owlstyles'); // Enqueue it!
- 
     wp_register_style('hodiern', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
     wp_enqueue_style('hodiern'); // Enqueue it!
 }
@@ -675,5 +658,137 @@ function hodiern_slider_func( $atts ) {
     }
 }
 
+
+// OMMWRITER API ENDPOINTS
+add_filter('wo_endpoints','create_user_endpoint', 2);
+function create_user_endpoint ($methods)
+{
+ $methods['create'] = array('func'=>'create_user_method');
+ return $methods;
+}
+function create_user_method ($token)
+{
+ 
+ $username = $_POST['username'];
+ $password = $_POST['password'];
+ $email = $_POST['email'];
+ $notegraphy_id = $_POST['notegraphy_id'];
+ $desktop_device_ID = $_POST['desktop_device_id'];
+ $ipad_device_ID = $_POST['ipad_device_id'];
+ $registration_device_ID = $_POST['registration_device_id'];
+ $is_authorized = $_POST['is_authorized'];
+ $platform = $_POST['platform'];
+
+ if( !empty($username) AND !empty($password) AND !empty($email) AND !empty($platform) AND !empty($is_authorized) ){
+     if( !empty($desktop_device_ID) OR !empty($ipad_device_ID) ){
+         $user_id = wp_create_user( $username, $password, $email );
+         $error = "";
+         if ( is_wp_error( $user_id ) ){
+           $error = $user_id->get_error_message();
+         }else{
+            add_user_meta( $user_id, 'desktop_device_ID', $desktop_device_ID);
+            $desktop_device_ID_done = get_user_meta($user_id, 'desktop_device_ID', false);
+            add_user_meta( $user_id, 'ipad_device_ID', $ipad_device_ID);
+            $ipad_device_ID_done = get_user_meta($user_id, 'ipad_device_ID', false);
+            if( !empty($ipad_device_ID) ) {
+                add_user_meta( $user_id, 'registration_device_ID', $ipad_device_ID);
+            }else{
+                add_user_meta( $user_id, 'registration_device_ID', $desktop_device_ID);
+            }
+            $platform_done = get_user_meta($user_id, 'platform', false);    
+            add_user_meta( $user_id, 'notegraphy_id', $notegraphy_id); 
+            $notegraphy_id_done = get_user_meta($user_id, 'notegraphy_id', false);    
+            add_user_meta( $user_id, 'platform', $platform);
+            add_user_meta( $user_id, 'is_authorized', $is_authorized);  
+         }
+         
+         $return = array('action'=>'create user','user_id'=>$user_id,'error'=>$error,'notegraphy_id'=>$notegraphy_id_done,'desktop_device_ID'=>$desktop_device_ID,'ipad_device_ID'=>$ipad_device_ID);
+         $response = new OAuth2\Response($return);
+         $response->send();
+         exit;
+     }
+ }else{
+     $return = array('action'=>'create user','user_id'=>'false','error'=>'Empty fields');
+     $response = new OAuth2\Response($return);
+     $response->send();
+     exit;
+ }
+}
+
+add_filter('wo_endpoints','get_user_endpoint', 2);
+function get_user_endpoint ($methods)
+{
+ $methods['get_user'] = array('func'=>'get_user_method');
+ return $methods;
+}
+function get_user_method ($token)
+{
+ 
+ $user_id = $_GET['user_id'];
+
+ if( !empty($user_id) ){
+     $user_data = get_userdata ($user_id );
+     $notegraphy_id_done = get_user_meta($user_id, 'notegraphy_id', false);    
+     $platform_done = get_user_meta($user_id, 'platform', false);
+     $desktop_device_ID_done = get_user_meta($user_id, 'desktop_device_ID', false);    
+     $ipad_device_ID_done = get_user_meta($user_id, 'ipad_device_ID', false);    
+     $error = "";
+     if ( is_wp_error( $user_data ) ){
+       $error = $user_data->get_error_message();
+     }    
+     $return = array('action'=>'get user','estat'=>$user_id,'error'=>$error,'user_data'=>$user_data,'notegraphy'=>$notegraphy_id_done,'desktop_device_ID'=>$desktop_device_ID_done,'ipad_device_ID'=>$ipad_device_ID_done);
+     $response = new OAuth2\Response($return);
+     $response->send();
+     exit;
+ }else{
+     $return = array('action'=>'get user','estat'=>'false','error'=>'Empty fields','user_data'=>'false','notegraphy'=>'false');
+     $response = new OAuth2\Response($return);
+     $response->send();
+     exit;
+ }
+}
+
+add_filter('wo_endpoints','validate_endpoint', 2);
+function validate_endpoint ($methods)
+{
+ $methods['validate_user'] = array('func'=>'validate_user_method');
+ return $methods;
+}
+function validate_user_method ($token)
+{
+ $user_id = $_GET['user_id'];
+ $username = $_GET['username'];
+ $password = $_GET['password'];
+ $notegraphy_id = $_GET['notegraphy_id'];
+ $desktop_device_ID = $_GET['desktop_device_id'];
+ $ipad_device_ID = $_GET['ipad_device_id'];
+
+ if( !empty($username) AND !empty($password) ){
+     $validation = wp_authenticate_username_password ( null, $username, $password );
+     $error = "";
+     if ( is_wp_error( $validation ) ){
+       $error = $validation->get_error_message();
+     }else{
+         if( !empty($desktop_device_ID) ){
+            update_user_meta( $user_id, 'desktop_device_id', $desktop_device_ID);  
+         }
+         if( !empty($ipad_device_ID) ){
+            update_user_meta( $user_id, 'ipad_device_ID', $ipad_device_ID);  
+         }
+         if( !empty($notegraphy_id) ){
+            update_user_meta( $user_id, 'notegraphy_id', $notegraphy_id);  
+         }    
+     }   
+     $return = array('action'=>'validate user','validation'=>$validation,'error'=>$error);
+     $response = new OAuth2\Response($return);
+     $response->send();
+     exit;
+ }else{
+     $return = array('action'=>'validate user','estat'=>'false','validation'=>'false','error'=>'Empty fields');
+     $response = new OAuth2\Response($return);
+     $response->send();
+     exit;
+ }
+}
 
 ?>
