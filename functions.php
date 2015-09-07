@@ -113,6 +113,21 @@ function my_theme_register_required_plugins() {
     tgmpa( $plugins, $config );
 
 }
+
+add_action( 'init', 'create_post_type' );
+function create_post_type() {
+  register_post_type( 'Estudios',
+    array(
+      'labels' => array(
+        'name' => __( 'Estudios' ),
+        'singular_name' => __( 'Estudios' )
+      ),
+      'public' => true,
+      'has_archive' => true,
+      'rewrite' => array('slug' => 'Estudios'),
+    )
+  );
+}
 ?>
 
 
@@ -536,6 +551,7 @@ function hodierncomments($comment, $args, $depth)
 	</div>
 	<?php endif; ?>
 <?php }
+
 
 /*------------------------------------*\
 	Actions + Filters + ShortCodes
