@@ -15,13 +15,11 @@
  * @license    http://opensource.org/licenses/gpl-2.0.php GPL v2 or later
  * @link       https://github.com/thomasgriffin/TGM-Plugin-Activation
  */
-
 /**
  * Include the TGM_Plugin_Activation class.
  */
-require_once dirname( __FILE__ ) . '/lib/plugin_activation/class-tgm-plugin-activation.php';
-
-add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
+// require_once dirname( __FILE__ ) . '/lib/plugin_activation/class-tgm-plugin-activation.php';
+// add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
 /**
  * Register the required plugins for this theme.
  *
@@ -34,26 +32,17 @@ add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
  * This function is hooked into tgmpa_init, which is fired within the
  * TGM_Plugin_Activation class constructor.
  */
-function my_theme_register_required_plugins() {
+/*function my_theme_register_required_plugins() {
 
     /**
      * Array of plugin arrays. Required keys are name and slug.
      * If the source is NOT from the .org repo, then source is also required.
      */
+/*
     $plugins = array(
 
         // This is an example of how to include a plugin pre-packaged with a theme.
-        array(
-            'name'               => 'ACF PRO', // The plugin name.
-            'slug'               => 'advanced-custom-fields-pro', // The plugin slug (typically the folder name).
-            'source'             => get_template_directory_uri() . '/lib/plugin_activation/plugins/advanced-custom-fields-pro.zip', // The plugin source.
-            'required'           => true, // If false, the plugin is only 'recommended' instead of required.
-            'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher.
-            'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-            'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-            'external_url'       => '', // If set, overrides default API URL and points to an external URL.
-        ),
-        /*
+        
 
         // This is an example of how to include a plugin from a private repo in your theme.
         array(
@@ -69,17 +58,18 @@ function my_theme_register_required_plugins() {
             'name'      => 'BuddyPress',
             'slug'      => 'buddypress',
             'required'  => false,
-        ),*/
+        ),
 
     );
-
-    /**
+    */
+/**
      * Array of configuration settings. Amend each line as needed.
      * If you want the default strings to be available under your own theme domain,
      * leave the strings uncommented.
      * Some of the strings are added into a sprintf, so see the comments at the
      * end of each line for what each argument will be.
      */
+/*
     $config = array(
         'default_path' => '',                      // Default absolute path to pre-packaged plugins.
         'menu'         => 'tgmpa-install-plugins', // Menu slug.
@@ -113,103 +103,7 @@ function my_theme_register_required_plugins() {
     tgmpa( $plugins, $config );
 
 }
-
-add_action( 'init', 'create_post_type' );
-function create_post_type() {
-  register_post_type( 'Estudios',
-    array(
-      'labels' => array(
-        'name' => __( 'Estudios' ),
-        'singular_name' => __( 'Estudios' )
-      ),
-      'public' => true,
-      'has_archive' => true,
-      'rewrite' => array('slug' => 'Estudios'),
-    )
-  );
-}
-?>
-
-
-<?php 
-// CREACIÓ DE GALERIES
-
-if(function_exists("register_field_group"))
-{
-	register_field_group(array (
-		'id' => 'acf_galeries',
-		'title' => 'Galeries',
-		'fields' => array (
-			array (
-				'key' => 'field_5489d9a8562a2',
-				'label' => 'Slide',
-				'name' => 'Slide',
-				'type' => 'repeater',
-				'sub_fields' => array (
-					array (
-						'key' => 'field_5489d9b8562a3',
-						'label' => 'Image',
-						'name' => 'image',
-						'type' => 'image',
-						'column_width' => '',
-						'save_format' => 'url',
-						'preview_size' => 'full',
-						'library' => 'all',
-					),
-					array (
-						'key' => 'field_5489d9e1562a4',
-						'label' => 'Big text caption',
-						'name' => 'big_text_caption',
-						'type' => 'text',
-						'column_width' => '',
-						'default_value' => '',
-						'placeholder' => '',
-						'prepend' => '',
-						'append' => '',
-						'formatting' => 'html',
-						'maxlength' => '',
-					),
-					array (
-						'key' => 'field_5489d9fa562a5',
-						'label' => 'Small text caption',
-						'name' => 'small_text_caption',
-						'type' => 'text',
-						'column_width' => '',
-						'default_value' => '',
-						'placeholder' => '',
-						'prepend' => '',
-						'append' => '',
-						'formatting' => 'html',
-						'maxlength' => '',
-					),
-				),
-				'row_min' => '',
-				'row_limit' => '',
-				'layout' => 'row',
-				'button_label' => 'Add slide',
-			),
-		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'galeria',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'normal',
-			'layout' => 'no_box',
-			'hide_on_screen' => array (
-			),
-		),
-		'menu_order' => 0,
-	));
-}
-
+*/
 ?>
 
 <?php
@@ -617,6 +511,21 @@ function create_post_types() {
   );
 }
 
+add_action( 'init', 'create_post_type' );
+function create_post_type() {
+  register_post_type( 'Estudios',
+    array(
+      'labels' => array(
+        'name' => __( 'Estudios' ),
+        'singular_name' => __( 'Estudios' )
+      ),
+      'public' => true,
+      'has_archive' => true,
+      'rewrite' => array('slug' => 'Estudios'),
+    )
+  );
+}
+
 // Shortcodes
 
 // [hodiern_slider id="34"]
@@ -675,136 +584,44 @@ function hodiern_slider_func( $atts ) {
 }
 
 
-// OMMWRITER API ENDPOINTS
-add_filter('wo_endpoints','create_user_endpoint', 2);
-function create_user_endpoint ($methods)
-{
- $methods['create'] = array('func'=>'create_user_method');
- return $methods;
-}
-function create_user_method ($token)
-{
+?>
+
+<?php 
+
+// 1. customize ACF path
+add_filter('acf/settings/path', 'my_acf_settings_path');
  
- $username = $_POST['username'];
- $password = $_POST['password'];
- $email = $_POST['email'];
- $notegraphy_id = $_POST['notegraphy_id'];
- $desktop_device_ID = $_POST['desktop_device_id'];
- $ipad_device_ID = $_POST['ipad_device_id'];
- $registration_device_ID = $_POST['registration_device_id'];
- $is_authorized = $_POST['is_authorized'];
- $platform = $_POST['platform'];
-
- if( !empty($username) AND !empty($password) AND !empty($email) AND !empty($platform) AND !empty($is_authorized) ){
-     if( !empty($desktop_device_ID) OR !empty($ipad_device_ID) ){
-         $user_id = wp_create_user( $username, $password, $email );
-         $error = "";
-         if ( is_wp_error( $user_id ) ){
-           $error = $user_id->get_error_message();
-         }else{
-            add_user_meta( $user_id, 'desktop_device_ID', $desktop_device_ID);
-            $desktop_device_ID_done = get_user_meta($user_id, 'desktop_device_ID', false);
-            add_user_meta( $user_id, 'ipad_device_ID', $ipad_device_ID);
-            $ipad_device_ID_done = get_user_meta($user_id, 'ipad_device_ID', false);
-            if( !empty($ipad_device_ID) ) {
-                add_user_meta( $user_id, 'registration_device_ID', $ipad_device_ID);
-            }else{
-                add_user_meta( $user_id, 'registration_device_ID', $desktop_device_ID);
-            }
-            $platform_done = get_user_meta($user_id, 'platform', false);    
-            add_user_meta( $user_id, 'notegraphy_id', $notegraphy_id); 
-            $notegraphy_id_done = get_user_meta($user_id, 'notegraphy_id', false);    
-            add_user_meta( $user_id, 'platform', $platform);
-            add_user_meta( $user_id, 'is_authorized', $is_authorized);  
-         }
-         
-         $return = array('action'=>'create user','user_id'=>$user_id,'error'=>$error,'notegraphy_id'=>$notegraphy_id_done,'desktop_device_ID'=>$desktop_device_ID,'ipad_device_ID'=>$ipad_device_ID);
-         $response = new OAuth2\Response($return);
-         $response->send();
-         exit;
-     }
- }else{
-     $return = array('action'=>'create user','user_id'=>'false','error'=>'Empty fields');
-     $response = new OAuth2\Response($return);
-     $response->send();
-     exit;
- }
-}
-
-add_filter('wo_endpoints','get_user_endpoint', 2);
-function get_user_endpoint ($methods)
-{
- $methods['get_user'] = array('func'=>'get_user_method');
- return $methods;
-}
-function get_user_method ($token)
-{
+function my_acf_settings_path( $path ) {
  
- $user_id = $_GET['user_id'];
-
- if( !empty($user_id) ){
-     $user_data = get_userdata ($user_id );
-     $notegraphy_id_done = get_user_meta($user_id, 'notegraphy_id', false);    
-     $platform_done = get_user_meta($user_id, 'platform', false);
-     $desktop_device_ID_done = get_user_meta($user_id, 'desktop_device_ID', false);    
-     $ipad_device_ID_done = get_user_meta($user_id, 'ipad_device_ID', false);    
-     $error = "";
-     if ( is_wp_error( $user_data ) ){
-       $error = $user_data->get_error_message();
-     }    
-     $return = array('action'=>'get user','estat'=>$user_id,'error'=>$error,'user_data'=>$user_data,'notegraphy'=>$notegraphy_id_done,'desktop_device_ID'=>$desktop_device_ID_done,'ipad_device_ID'=>$ipad_device_ID_done);
-     $response = new OAuth2\Response($return);
-     $response->send();
-     exit;
- }else{
-     $return = array('action'=>'get user','estat'=>'false','error'=>'Empty fields','user_data'=>'false','notegraphy'=>'false');
-     $response = new OAuth2\Response($return);
-     $response->send();
-     exit;
- }
+    // update path
+    $path = get_stylesheet_directory() . '/acf/';
+    
+    // return
+    return $path;
+    
 }
+ 
 
-add_filter('wo_endpoints','validate_endpoint', 2);
-function validate_endpoint ($methods)
-{
- $methods['validate_user'] = array('func'=>'validate_user_method');
- return $methods;
+// 2. customize ACF dir
+add_filter('acf/settings/dir', 'my_acf_settings_dir');
+ 
+function my_acf_settings_dir( $dir ) {
+ 
+    // update path
+    $dir = get_stylesheet_directory_uri() . '/acf/';
+    
+    // return
+    return $dir;
+    
 }
-function validate_user_method ($token)
-{
- $user_id = $_GET['user_id'];
- $username = $_GET['username'];
- $password = $_GET['password'];
- $notegraphy_id = $_GET['notegraphy_id'];
- $desktop_device_ID = $_GET['desktop_device_id'];
- $ipad_device_ID = $_GET['ipad_device_id'];
+ 
 
- if( !empty($username) AND !empty($password) ){
-     $validation = wp_authenticate_username_password ( null, $username, $password );
-     $error = "";
-     if ( is_wp_error( $validation ) ){
-       $error = $validation->get_error_message();
-     }else{
-         if( !empty($desktop_device_ID) ){
-            update_user_meta( $user_id, 'desktop_device_id', $desktop_device_ID);  
-         }
-         if( !empty($ipad_device_ID) ){
-            update_user_meta( $user_id, 'ipad_device_ID', $ipad_device_ID);  
-         }
-         if( !empty($notegraphy_id) ){
-            update_user_meta( $user_id, 'notegraphy_id', $notegraphy_id);  
-         }    
-     }   
-     $return = array('action'=>'validate user','validation'=>$validation,'error'=>$error);
-     $response = new OAuth2\Response($return);
-     $response->send();
-     exit;
- }else{
-     $return = array('action'=>'validate user','estat'=>'false','validation'=>'false','error'=>'Empty fields');
-     $response = new OAuth2\Response($return);
-     $response->send();
-     exit;
- }
-}
+// 3. Hide ACF field group menu item
+//add_filter('acf/settings/show_admin', '__return_false');
+
+
+// 4. Include ACF
+include_once( get_stylesheet_directory() . '/acf/acf.php' );
 
 ?>
+
