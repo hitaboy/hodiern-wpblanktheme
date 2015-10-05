@@ -497,22 +497,10 @@ add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); // Remove
 remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altogether
 
 // CUSTOM POST TYPES
-add_action( 'init', 'create_post_types' );
-function create_post_types() {
-  register_post_type( 'galeria',
-    array(
-      'labels' => array(
-        'name' => __( 'Galeries' ),
-        'singular_name' => __( 'Galeria' )
-      ),
-      'public' => true,
-      'has_archive' => true,
-    )
-  );
-}
 
-add_action( 'init', 'create_post_type' );
-function create_post_type() {
+
+//add_action( 'init', 'create_post_type' );
+/*function create_post_type() {
   register_post_type( 'Estudios',
     array(
       'labels' => array(
@@ -524,7 +512,7 @@ function create_post_type() {
       'rewrite' => array('slug' => 'Estudios'),
     )
   );
-}
+}*/
 
 // Shortcodes
 
