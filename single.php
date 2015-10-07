@@ -22,24 +22,14 @@
 			</h1>
 			<!-- /post title -->
 			
-			<!-- post details -->
-			<span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
-			<span class="author"><?php _e( 'Published by', 'hodiern' ); ?> <?php the_author_posts_link(); ?></span>
-			<span class="comments"><?php comments_popup_link( __( 'Leave your thoughts', 'hodiern' ), __( '1 Comment', 'hodiern' ), __( '% Comments', 'hodiern' )); ?></span>
-			<!-- /post details -->
+			
 			
 			<?php the_content(); // Dynamic Content ?>
 			
-			<?php the_tags( __( 'Tags: ', 'hodiern' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
-			
-			<p><?php _e( 'Categorised in: ', 'hodiern' ); the_category(', '); // Separated by commas ?></p>
-			
-			<p><?php _e( 'This post was written by ', 'hodiern' ); the_author(); ?></p>
-			
-			<?php edit_post_link(); // Always handy to have Edit Post Links available ?>
-			
-			<?php comments_template(); ?>
-			
+			<?php
+  			$type = get_field( "typel" );
+  			print_r( $type );
+			?>
 		</article>
 		<!-- /article -->
 		
@@ -60,6 +50,6 @@
 	</section>
 	<!-- /section -->
 	
-<?php get_sidebar(); ?>
+
 
 <?php get_footer(); ?>
