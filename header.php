@@ -15,9 +15,10 @@
 		<!-- icons -->
 		<link href="<?php echo get_template_directory_uri(); ?>/img/icons/favicon.ico" rel="shortcut icon">
 		<link href="<?php echo get_template_directory_uri(); ?>/img/icons/touch.png" rel="apple-touch-icon-precomposed">
-			
+		<link rel="stylesheet" id="promogear-fonts-css" href="https://fonts.googleapis.com/css?family=Lato%3A100%2C300%2C400%2C700%2C900%2C100italic%2C300italic%2C400italic%2C700italic%2C900italic&amp;ver=4.2.2" type="text/css" media="all">
 		<!-- css + javascript -->
 		<?php wp_head(); ?>
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 		<script>
 		var galeries = new Array();
 		</script>

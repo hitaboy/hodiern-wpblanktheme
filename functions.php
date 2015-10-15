@@ -212,7 +212,7 @@ function hodiern_header_scripts()
         
         */
         
-        wp_register_script('hodiernscripts', get_template_directory_uri() . '/js/scripts-min.js', array(), '1.0.0'); // Custom scripts
+        wp_register_script('hodiernscripts', get_template_directory_uri() . '/scripts-min.js', array(), '1.0.0'); // Custom scripts
         wp_enqueue_script('hodiernscripts'); // Enqueue it!
     }
 }
@@ -611,5 +611,13 @@ function my_acf_settings_dir( $dir ) {
 // 4. Include ACF
 include_once( get_stylesheet_directory() . '/acf/acf.php' );
 
+?>
+
+<?php 
+  function pr2($content){
+    echo "<pre>";
+    print_r($content);
+    echo "</pre>";
+  } 
 ?>
 
