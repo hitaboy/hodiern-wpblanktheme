@@ -16,7 +16,11 @@
 			
 			<br class="clear">
 			
-			<?php edit_post_link(); ?>
+			<?php 
+  			//edit_post_link(); 
+  			include('template_master.php');
+  		?>
+			
 			
 		</article>
 		<!-- /article -->
@@ -37,7 +41,3 @@
 	
 	</section>
 	<!-- /section -->
-	
-<?php get_sidebar(); ?>
-
-<?php get_footer(); ?>
