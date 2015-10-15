@@ -41,6 +41,11 @@
                   include('blocks/full_width_image_tpl.php');
                   
                 }
+                if ($type == 'Full Screen Image'){
+                  
+                  include('blocks/full_screen_image_tpl.php');
+                  
+                }
                 if ($type == 'Carrousel'){
                   
                   include('blocks/carrusel_tpl.php');
