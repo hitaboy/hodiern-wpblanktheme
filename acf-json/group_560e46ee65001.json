@@ -9,6 +9,13 @@
                 "operator": "==",
                 "value": "post"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
         ]
     ],
     "menu_order": 0,
@@ -19,5 +26,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1444907007
+    "modified": 1444907464
 }
