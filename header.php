@@ -30,14 +30,6 @@
 	
 			<!-- header -->
 			<header class="header clear" role="banner">
-				
-					<!-- logo -->
-					<div class="logo">
-						<a href="<?php echo home_url(); ?>">
-							<img src="<?php echo get_template_directory_uri(); ?>/screenshot.png" alt="Logo" class="logo-img">
-						</a>
-					</div>
-					<!-- /logo -->
 					
 					<!-- nav -->
 					<nav class="nav" role="navigation">
