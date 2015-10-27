@@ -8,6 +8,7 @@
   
    if($layout == 'Grid'){
      if( !empty($term) ):
+
   foreach ($term as $taxonomy){
   ?>
   	<h2><?php echo $taxonomy->name; ?></h2>
@@ -21,7 +22,9 @@
         	  while ( $the_query->have_posts() ) {
         		  $the_query->the_post();
               $post_id=get_the_ID();
-              echo '<div class="summary grid">';
+              ?> 
+              <div class="summary grid" style="background-color:<?php the_sub_field("content_background"); ?>"> 
+              <?php
               $thumbnail = get_field('thumbnail', $post_id);?>
               <div class="thumbnail_summary">
                 <img class="thumbnail" src="<?php echo $thumbnail['url']; ?>" alt="<?php echo $thumbnail['alt']; ?>" />
@@ -65,7 +68,9 @@
         	  while ( $the_query->have_posts() ) {
         		  $the_query->the_post();
               $post_id=get_the_ID();
-              echo '<div class="summary list">';
+              ?> 
+              <div class="summary list" style="background-color:<?php the_sub_field("content_background"); ?>"> 
+              <?php
               $thumbnail = get_field('thumbnail', $post_id);?>
               <div class="thumbnail_summary">
                 <img class="thumbnail" src="<?php echo $thumbnail['url']; ?>" alt="<?php echo $thumbnail['alt']; ?>" />
@@ -97,7 +102,6 @@
     endif; 
    }
     
-    
   }else{
     if ($grid_type == 'Post list'){
       if($layout == 'List'){
@@ -105,13 +109,13 @@
         $cont=0;
         foreach ($post_object as $post_list){
           $post_id = $post_object[$cont]->ID;
-          echo $post_id;
           $the_query = new WP_Query( array('p' => $post_id ) );
           if ( $the_query->have_posts() ) {
           	
           	  while ( $the_query->have_posts() ) {
           		  $the_query->the_post();
-                echo '<div class="summary list">';
+                ?> <div class="summary list" style="background-color:<?php the_sub_field("content_background"); ?>"> 
+              <?php
                 $thumbnail = get_field('thumbnail', $post_id);?>
                 <div class="thumbnail_summary">
                   <img class="thumbnail" src="<?php echo $thumbnail['url']; ?>" alt="<?php echo $thumbnail['alt']; ?>" />
@@ -147,7 +151,8 @@
           	
           	  while ( $the_query->have_posts() ) {
           		  $the_query->the_post();
-                echo '<div class="summary grid">';
+                ?> <div class="summary grid" style="background-color:<?php the_sub_field("content_background"); ?>"> 
+              <?php
                 $thumbnail = get_field('thumbnail', $post_id);?>
                 <div class="thumbnail_summary">
                   <img class="thumbnail" src="<?php echo $thumbnail['url']; ?>" alt="<?php echo $thumbnail['alt']; ?>" />

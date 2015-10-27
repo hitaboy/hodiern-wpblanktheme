@@ -201,6 +201,7 @@ article{
       .thumbnail_summary{
         width: 267px;
         height: 200px;
+        display: inline-block;
         .thumbnail{
           height: 100%;
         }
@@ -212,8 +213,13 @@ article{
           text-transform: uppercase;
         }
       }
+      .description_summary{
+        padding: 10px;
+        width: 276px;
+      }
     }
     &.list{
+      
       overflow: hidden;
       margin: 20px;
       .thumbnail_summary{
@@ -225,12 +231,18 @@ article{
         }
       }
       .content_sumamry{
+        padding-top: 20px;
         float: left;
         margin-left: 40px;
         text-align: left;
+        width: 45%;
+        display: inline-block;
         .text_summary{
           text-transform: uppercase;
           font-weight: bold;
+        }
+        .description_summary{
+          display: inline-block;
         }
       }
     }

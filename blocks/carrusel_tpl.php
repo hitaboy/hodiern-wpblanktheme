@@ -1,9 +1,9 @@
 <?php
-
+$back = get_sub_field('content_background');
 // check if the repeater field has rows of data
 if( have_rows('carrousel') ):
 ?>
-<div class="carrousel"> 
+<div class="carrousel" style="background-color:<?php echo $back; ?>"> 
   <?php
  	// loop through the rows of data
     while ( have_rows('carrousel') ) : the_row();

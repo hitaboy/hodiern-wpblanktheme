@@ -3,7 +3,7 @@
 $gallery = get_sub_field('images');
 
 if( $gallery ): ?>
-    <ul class="gallery">
+    <ul class="gallery" style="background-color:<?php the_sub_field('content_background'); ?>">
         <?php foreach( $gallery as $gallery ): ?>
             <li class="item_image">
                 <a href="<?php echo $gallery['url']; ?>">
