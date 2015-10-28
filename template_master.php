@@ -1,5 +1,5 @@
 <?php
-  			
+  			$cont_carrousel = 0;
   			if( have_rows('block_list') ):
 
          	// loop through the rows of data
@@ -78,8 +78,9 @@
                   
                 }
                 if (get_row_layout() == 'carrousel_image'){
-                  
+                
                   include('blocks/carrusel_tpl.php');
+                  $cont_carrousel++;
                   
                 }
                  if (get_row_layout() == 'gallery'){

@@ -89,14 +89,18 @@ $(document).ready(function(){
 });
 
 $(function() {
-	$('.carrousel').owlCarousel({
-    loop:true,
-    margin:10,
-    nav:true,
-    items:2
-  });
+  for(cont = 0; cont < layoutCarrousel.length; cont++ ){
+  	$('#'+layoutCarrousel[cont][0]).owlCarousel({
+      loop:true,
+      margin:10,
+      nav:true,
+      autoplay: $.parseJSON(layoutCarrousel[cont][2]),
+      autoplayHoverPause: $.parseJSON(layoutCarrousel[cont][3]),
+      items:layoutCarrousel[cont][1]
+    });
+  }
 	// Galery 
-	for(galery in galeries) {
+/*	for(galery in galeries) {
 		slides = parseInt(galeries[galery].slides,10);
 		$('.carrusel_'+galeries[galery].class).owlCarousel({
 		    loop:true,
@@ -105,6 +109,6 @@ $(function() {
 			items:slides,
 			autoHeight:true
 		});	
-	}
+	}*/
 
 });

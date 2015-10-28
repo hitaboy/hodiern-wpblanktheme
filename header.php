@@ -23,6 +23,9 @@
 		var galeries = new Array();
 		</script>
 	</head>
+	<script>
+  	var layoutCarrousel = new Array();
+	</script>
 	<body <?php body_class(); ?>>
 	
 		<!-- wrapper -->
