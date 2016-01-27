@@ -85,15 +85,27 @@ $(document).ready(function(){
 		map = new_map( $(this) );
 
 	});
+	
+	$('.lightGallery').lightGallery(); 
+	
+	// ALL CLICKS
+	$('.mobileMenu').on('click', function(){
+  	$('.header').addClass('activeMobile');
+	});
+	$('.mobileClose').on('click', function(){
+  	$('.header').removeClass('activeMobile');
+	});
 
 });
+
 
 $(function() {
   for(cont = 0; cont < layoutCarrousel.length; cont++ ){
   	$('#'+layoutCarrousel[cont][0]).owlCarousel({
       loop:true,
       margin:10,
-      nav:true,
+      nav:false,
+      dots:true,
       autoplay: $.parseJSON(layoutCarrousel[cont][2]),
       autoplayHoverPause: $.parseJSON(layoutCarrousel[cont][3]),
       items:layoutCarrousel[cont][1]
