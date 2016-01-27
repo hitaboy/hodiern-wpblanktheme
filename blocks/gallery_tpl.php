@@ -3,14 +3,17 @@
 $gallery = get_sub_field('images');
 
 if( $gallery ): ?>
-    <ul class="gallery" style="background-color:<?php the_sub_field('content_background'); ?>">
-        <?php foreach( $gallery as $gallery ): ?>
-            <li class="item_image">
-                <a href="<?php echo $gallery['url']; ?>">
-                     <img src="<?php echo $gallery['sizes']['thumbnail']; ?>" alt="<?php echo $gallery['alt']; ?>" />
-                </a>
-               <!-- <p><?php echo $gallery['caption']; ?></p>-->
-            </li>
-        <?php endforeach; ?>
-    </ul>
+<div class="galleryContainer" style="background-color:<?php the_sub_field('content_background'); ?>">
+  <div class="wrapper_in">
+    <div class="gallery lightGallery">      
+      <?php foreach( $gallery as $gallery ): ?>
+      
+          <a href="<?php echo $gallery['url']; ?>">
+            <img src="<?php echo $gallery['sizes']['thumbnail']; ?>" alt="<?php echo $gallery['alt']; ?>" />
+          </a>
+
+      <?php endforeach; ?>      
+    </div>
+  </div>
+</div>
 <?php endif; ?>

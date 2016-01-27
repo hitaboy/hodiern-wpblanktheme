@@ -3,7 +3,11 @@
 	<!-- section -->
 	<section role="main">
 	
-		<h1><?php the_title(); ?></h1>
+	  <?php if(!is_front_page()){ ?>
+  	  <div class="page_title">
+  		<h1><?php the_title(); ?></h1>
+  	  </div>
+		<?php } ?>
 	
 	<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 	
@@ -11,11 +15,7 @@
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		
 			<?php the_content(); ?>
-			
-			<?php comments_template( '', true ); // Remove if you don't want comments ?>
-			
-			<br class="clear">
-			
+		
 			<?php 
   			//edit_post_link(); 
   			include('template_master.php');
@@ -41,3 +41,5 @@
 	
 	</section>
 	<!-- /section -->
+
+<?php get_footer(); ?>

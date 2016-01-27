@@ -5,8 +5,7 @@
 ?>
                   
   <?php  if( !empty($full_image) ):?>
-      <div class="full_screen_image" style="background-color:<?php the_sub_field('content_background'); ?>">
-    	  <img src="<?php echo $full_image['url']; ?>" alt="<?php echo $full_image['alt']; ?>" />
+      <div class="full_screen_image" style="background:url(<?php echo $full_image['url']; ?>);">
     	  <div class="wrapper content_text">
       	 <?php  if( !empty($title) ):?>
             <h2 class="content_title"><?php echo $title; ?></h2>

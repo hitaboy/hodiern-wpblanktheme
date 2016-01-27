@@ -1,19 +1,18 @@
-			<!-- footer -->
 			<footer class="footer" role="contentinfo">
 				
-				<!-- copyright -->
-				<p class="copyright">
-					&copy; <?php echo date("Y"); ?> Copyright <?php bloginfo('name'); ?>. <?php _e('Powered by', 'hodiern'); ?> 
-					<a href="//wordpress.org" title="WordPress">WordPress</a> &amp; <a href="//hodiern.com" title="HTML5 Blank">HTML5 Blank</a>.
-				</p>
-				<!-- /copyright -->
+				<div class="wrapper_in">
+  				<p class="copyright">
+  					&copy; <?php echo date("Y"); ?> Copyright <a href="http://www.elterrat.com/"><b>EL TERRAT</b></a>
+  				</p>
+				</div>
 				
 			</footer>
-			<!-- /footer -->
 		
 		</div>
-		<!-- /wrapper -->
 
+    </div>
+      
+      
 		<?php wp_footer(); ?>
 		
 		<!-- analytics -->

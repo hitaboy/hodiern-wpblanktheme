@@ -37,9 +37,11 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Raleway;
+  font-family: "Trade Gothic BoldEx";
+  text-transform: uppercase;
   font-weight: 300;
-  color: #333;
+  margin: 30px 0px;
+  color: #222222;
 }
 ul {
   margin: 0px;
@@ -55,6 +57,7 @@ ul {
   clear: both;
 }
 .clear {
+  clear: both;
   *zoom: 1;
 }
 img {
@@ -107,42 +110,57 @@ input:focus {
   margin: 20px 0;
   display: inline-block;
 }
-.header {
-  display: none;
+.wrapper_in {
+  position: relative;
+  width: 1000px;
+  margin: 0 auto;
 }
 article {
   text-align: center;
 }
-.full_image {
+.full_image,
+.full_screen_image {
   position: relative;
 }
-.full_image img {
+.full_image img,
+.full_screen_image img {
   width: 100%;
 }
-.full_image .content_text {
+.full_image .content_text,
+.full_screen_image .content_text {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: #000;
-  width: 100%;
   text-align: center;
   background: rgba(255, 255, 255, 0.6);
+  padding: 50px;
+  padding-top: 65px;
+  width: auto;
 }
 .full_image .content_text h1,
+.full_screen_image .content_text h1,
 .full_image .content_text h2,
+.full_screen_image .content_text h2,
 .full_image .content_text h3,
+.full_screen_image .content_text h3,
 .full_image .content_text h4,
+.full_screen_image .content_text h4,
 .full_image .content_text h5,
-.full_image .content_text h6 {
+.full_screen_image .content_text h5,
+.full_image .content_text h6,
+.full_screen_image .content_text h6 {
   margin: 0px;
+  display: inline-block;
 }
-.full_screen_image img {
+.full_screen_image {
   width: 100%;
   height: 100vh;
+  background-size: cover !important;
+  background-position: 50% 50% !important;
 }
 .carrousel {
-  padding: 30px 0px;
   /*&.carrousel1{
     .item{
       width: 100%;
@@ -168,7 +186,7 @@ article {
   width: 100%;
   position: relative;
   display: inline-block;
-  height: 366px;
+  height: auto;
 }
 .carrousel .owl-item .item .content_item {
   position: absolute;
@@ -176,18 +194,32 @@ article {
   height: 100%;
   top: 0;
   left: 0;
-  opacity: 0;
+  opacity: 1;
   transition: all 1s;
 }
 .carrousel .owl-item .item .content_item .content_text {
   position: absolute;
   color: #fff;
-  top: 50%;
+  bottom: 0px;
+  left: 0px;
   width: 100%;
-  text-align: center;
-  left: 50%;
+  height: 120px;
+  text-align: left;
   background: rgba(0, 0, 0, 0.5);
-  transform: translate(-50%, -50%);
+  padding: 30px;
+  padding-left: 140px;
+}
+.carrousel .owl-item .item .content_item .content_text:before {
+  content: " ";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 120px;
+  height: 120px;
+  background: url('img/mosca.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
 }
 .carrousel .owl-item .item .content_item .content_text h1,
 .carrousel .owl-item .item .content_item .content_text h2,
@@ -198,11 +230,18 @@ article {
   margin: 0px;
   color: #fff;
 }
+.carrousel .owl-item .item .content_item .content_text .content_title {
+  text-transform: uppercase;
+  font-family: "Trade Gothic BoldEx";
+}
+.carrousel .owl-item .item .content_item .content_text .content_description {
+  font-size: 15px;
+}
 .carrousel .owl-item .item:hover .content_item {
   opacity: 1;
 }
 .carrousel .owl-item .item img {
-  display: none;
+  opacity: 0;
 }
 .carrousel .owl-nav .owl-prev,
 .carrousel .owl-nav .owl-next {
@@ -210,9 +249,27 @@ article {
   display: inline-block;
   text-transform: capitalize;
 }
+.carrousel .owl-dots {
+  position: relative;
+  margin-top: 10px;
+}
+.carrousel .owl-dots .owl-dot {
+  display: inline-block;
+  position: relative;
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  margin: 0px 5px;
+  background: #ccc;
+  background: rgba(0, 0, 0, 0.1);
+}
+.carrousel .owl-dots .owl-dot.active {
+  background: #333;
+  background: rgba(0, 0, 0, 0.4);
+}
 .gallery {
   text-align: center;
-  margin: 30px 0px;
+  padding: 80px 0px;
 }
 .gallery .item_image {
   display: inline-block;
@@ -228,32 +285,73 @@ article {
   height: 100%;
 }
 .content_text {
-  width: 90%;
+  width: 100%;
   display: inline-block;
+}
+.container {
+  position: relative;
 }
 .summary.grid {
-  display: inline-block;
+  display: block;
+  float: left;
   overflow: hidden;
-  margin: 20px;
+  position: relative;
+  width: 33.33%;
+  padding: 8px;
+  background: #fff;
+}
+.summary.grid .cats {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #d7b55b;
+  color: #fff;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 5px;
+  padding-bottom: 2px;
+  z-index: 2;
+  font-family: "Trade Gothic Bold";
+  box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.3);
 }
 .summary.grid .thumbnail_summary {
-  width: 267px;
-  height: 200px;
-  display: inline-block;
+  padding: 5px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  background-size: cover !important;
 }
-.summary.grid .thumbnail_summary .thumbnail {
-  height: 100%;
+.summary.grid .thumbnail_summary img {
+  width: 100%;
+}
+.summary.grid .infoBox {
+  border: 1px solid #dfdfdf;
+  position: relative;
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
 }
 .summary.grid .text_summary {
-  margin: 10px;
+  margin: 20px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
 }
 .summary.grid .text_summary .text {
-  border-bottom: 1px solid #ccc;
   text-transform: uppercase;
+  font-family: "Trade Gothic BoldEx";
+  font-size: 18px;
 }
 .summary.grid .description_summary {
-  padding: 10px;
-  width: 276px;
+  margin: 20px;
+  margin-top: 0px;
+  text-align: left;
+  font-size: 15px;
+}
+.summary.grid:hover {
+  opacity: 0.7;
 }
 .summary.list {
   overflow: hidden;
@@ -278,6 +376,9 @@ article {
 .summary.list .content_sumamry .text_summary {
   text-transform: uppercase;
   font-weight: bold;
+}
+.summary.list .content_sumamry .text {
+  font-family: "Trade Gothic Bold";
 }
 .summary.list .content_sumamry .description_summary {
   display: inline-block;
@@ -896,80 +997,342 @@ a img.aligncenter {
     STRUCTURE
 \*------------------------------------*/
 /* wrapper */
+.wrapper {
+  font-family: "Trade Gothic Std";
+}
 /* header */
+.header {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  width: 270px;
+  height: 100%;
+  background: #222222;
+  background: url('img/texture_grey.jpg') 0 0 repeat;
+  z-index: 10;
+  padding-top: 50px;
+}
+.header .nav {
+  padding: 20px;
+  margin-top: 50px;
+}
+.header .nav ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+.header .nav ul li {
+  display: block;
+  padding: 0px;
+  padding-left: 44px;
+  margin: 10px 0px;
+}
+.header .nav ul li a {
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #fff;
+}
+.header .nav ul li.current-menu-item a {
+  color: #d7b55b;
+  font-family: "Trade Gothic Bold";
+}
+.header .nav ul li ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  padding-left: 15px;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+.header .nav ul li ul li {
+  display: block;
+  padding: 0px;
+  margin: 10px 0px;
+}
+.header .social {
+  position: absolute;
+  bottom: 15px;
+  left: 0px;
+  width: 100%;
+  text-align: center;
+}
+.header .social a i {
+  color: #fff;
+  opacity: 0.8;
+}
+.headerThumb {
+  position: relative;
+  width: 100%;
+  height: 45vw;
+  background-size: cover !important;
+  background-position: 50% 0px !important;
+}
+.gridist {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+.mobileMenu,
+.mobileClose {
+  display: none;
+}
+.share {
+  position: relative;
+  display: inline-block;
+  margin: 50px auto;
+  border-top: 1px solid #dfdfdf;
+  padding: 10px;
+  padding-top: 20px;
+  padding-bottom: 0px;
+}
+.share span {
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.content_text_block,
+.mapBlock,
+.gridlist {
+  padding: 50px 0px;
+}
+body {
+  padding-right: 270px;
+}
+.bigTitle {
+  margin: 40px auto;
+  margin-top: 60px;
+  font-size: 40px;
+  border-bottom: 1px solid #dfdfdf;
+  position: relative;
+  display: inline-block;
+  padding: 0px 20px;
+  padding-bottom: 10px;
+}
+.categoryTitle {
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 0px;
+}
+.tags {
+  position: relative;
+}
+.tags a {
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 5px;
+  padding-bottom: 2px;
+  font-family: "Trade Gothic Bold";
+  border: 1px solid #dfdfdf;
+}
+.pagination {
+  position: relative;
+  text-align: center;
+}
+.pagination a,
+.pagination span {
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 5px;
+  padding-bottom: 2px;
+  font-family: "Trade Gothic Bold";
+  border: 1px solid #dfdfdf;
+}
+.pagination span {
+  opacity: 0.5;
+}
+.catsSingle {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #d7b55b;
+  color: #fff;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 5px;
+  padding-bottom: 2px;
+  z-index: 2;
+  font-family: "Trade Gothic Bold";
+  box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.3);
+  top: inherit;
+  bottom: -13px;
+  right: inherit;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px;
+}
 /* nav */
 .nav {
   position: relative;
 }
+.copyright {
+  text-transform: uppercase;
+  font-size: 12px;
+  text-align: center;
+}
+.copyright b {
+  font-family: "Trade Gothic Bold";
+}
 /* sidebar */
 /* footer */
+.footer {
+  position: relative;
+  border-top: 1px solid #dfdfdf;
+  margin-top: 30px;
+  padding-top: 30px;
+}
 /*------------------------------------*\
 	TYPOGRAPHY
 \*------------------------------------*/
 @font-face {
-  font-family: 'Font-Name';
-  src: url('fonts/font-name.eot');
-  src: url('fonts/font-name.eot?#iefix') format('embedded-opentype'), url('fonts/font-name.woff') format('woff'), url('fonts/font-name.ttf') format('truetype'), url('fonts/font-name.svg#font-name') format('svg');
+  font-family: 'Trade Gothic StdEx';
+  src: url('fonts/TradeGothicLTStd-Extended.eot');
+  src: url('fonts/TradeGothicLTStd-Extended.eot?#iefix') format('embedded-opentype'), url('fonts/TradeGothicLTStd-Extended.woff') format('woff'), url('fonts/TradeGothicLTStd-Extended.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
-* {
-  font-family: Arial;
+@font-face {
+  font-family: 'Trade Gothic Bold';
+  src: url('fonts/TradeGothicLTStd-Bold.eot');
+  src: url('fonts/TradeGothicLTStd-Bold.eot?#iefix') format('embedded-opentype'), url('fonts/TradeGothicLTStd-Bold.woff') format('woff'), url('fonts/TradeGothicLTStd-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Trade Gothic BoldEx';
+  src: url('fonts/TradeGothicLTStd-BoldExt.eot');
+  src: url('fonts/TradeGothicLTStd-BoldExt.eot?#iefix') format('embedded-opentype'), url('fonts/TradeGothicLTStd-BoldExt.woff') format('woff'), url('fonts/TradeGothicLTStd-BoldExt.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Trade Gothic Std';
+  src: url('fonts/TradeGothicLTStd.eot');
+  src: url('fonts/TradeGothicLTStd.eot?#iefix') format('embedded-opentype'), url('fonts/TradeGothicLTStd.woff') format('woff'), url('fonts/TradeGothicLTStd.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
 }
 /*------------------------------------*\
     RESPONSIVE
 \*------------------------------------*/
-/*------------------------------------*\
-    PRINT
-\*------------------------------------*/
-@media print {
-  * {
-    background: transparent !important;
-    color: #000 !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
+@media only screen and (min-width: 320px) and (max-width: 1280px) {
+  .wrapper_in {
+    max-width: 100%;
   }
-  a,
-  a:visited {
-    text-decoration: underline;
+  .summary.grid {
+    width: 50%;
   }
-  a[href]:after {
-    content: " (" attr(href) ")";
+}
+@media only screen and (min-width: 320px) and (max-width: 1024px) {
+  body {
+    padding-right: 0px;
   }
-  abbr[title]:after {
-    content: " (" attr(title) ")";
+  .header {
+    width: 100%;
+    right: 100%;
+    transition: right 1s;
+    text-align: center;
+    padding-top: 38px;
+    overflow-y: auto;
   }
-  .ir a:after,
-  a[href^="javascript:"]:after,
-  a[href^="#"]:after {
-    content: "";
+  .header img {
+    max-width: 70%;
   }
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
+  .header.activeMobile {
+    right: 0px;
   }
-  thead {
-    display: table-header-group;
+  .header .nav {
+    margin-top: 0px;
+    text-align: center;
   }
-  tr,
-  img {
-    page-break-inside: avoid;
+  .header .nav ul {
+    text-align: left;
+    position: relative;
+    display: inline-block;
   }
-  img {
-    max-width: 100% !important;
+  .header .nav ul li {
+    padding-left: 0px;
   }
-  @page {
-    margin: 0.5cm;
+  .header .nav ul li a {
+    font-size: 30px;
   }
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
+  .header .nav ul li ul {
+    display: block;
+    border: none;
   }
-  h2,
-  h3 {
-    page-break-after: avoid;
+  .header .nav ul li ul li a {
+    opacity: 0.5;
+  }
+  .mobileMenu {
+    display: block;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 8px;
+    padding-bottom: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .mobileClose {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 8px;
+    padding-bottom: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 1024px) {
+  .content_text_block,
+  .mapBlock,
+  .gridlist {
+    padding: 0px 0px;
+  }
+  .summary.grid {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .wrapper_in {
+    padding: 0px 10px;
+  }
+  .wrapper_in p {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .bigTitle {
+    margin: 10px auto;
+    margin-top: 35px;
+  }
+  .oembed {
+    height: 250px;
+  }
+  .gallery {
+    padding: 40px 0px;
+  }
+  .gallery a {
+    position: relative;
+    display: inline-block;
+  }
+  .acf-map {
+    width: 100%;
+  }
+  .carrousel .owl-item .item .content_item .content_text {
+    height: 60px;
+  }
+  .carrousel .owl-item .item .content_item .content_text .content_title {
+    font-size: 14px;
+  }
+  .carrousel .owl-item .item .content_item .content_text:before {
+    width: 60px;
+    height: 60px;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 700px) {
+  .gallery a {
+    width: 48%;
   }
 }
