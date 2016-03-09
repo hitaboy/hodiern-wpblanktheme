@@ -1012,6 +1012,10 @@ a img.aligncenter {
   z-index: 10;
   padding-top: 50px;
 }
+.header h1 {
+  color: #fff;
+  text-align: center;
+}
 .header .nav {
   padding: 20px;
   margin-top: 50px;
