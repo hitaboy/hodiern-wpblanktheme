@@ -14,20 +14,19 @@ gulp.task('lessComp', function() {
 gulp.task('jsConcat', function() { 
   return gulp.src([
   './js/modernizr.min.js',
-  './js/vendor/skrollr.min.js',
-  './js/jquery-2.1.3.js',
-  './js/vendor/bootstrap/bootstrap.min.js',
-  './js/vendor/owl.carousel.2.0.0-beta.2.4/owl.carousel.min.js'])
-    .pipe(concat('min.js'))
+  './js/jquery-2.1.3.min.js',
+  './js/vendor/owl.carousel.2.0.0-beta.2.4/owl.carousel.min.js',
+  './js/scripts.js'])
+    .pipe(concat('scripts-min.js'))
     .pipe(uglify())
-    .pipe(gulp.dest('./js/scripts-min'))
+    .pipe(gulp.dest('./'))
     .pipe(browserSync.stream())
-    .pipe(notify("COMPLOT > JS concat MAIN MIN DONE"));
+    .pipe(notify("htemplate.dev > JS concat MAIN MIN DONE"));
 });
 
 gulp.task('watch', function() {
     browserSync.init({
-      proxy: "tenemosunplan.com"
+      proxy: "htemplate.dev"
     });
     gulp.watch('./less/*.less', ['lessComp']);
     gulp.watch('./js/*.js', ['jsConcat']);

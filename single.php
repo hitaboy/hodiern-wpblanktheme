@@ -2,43 +2,61 @@
 	
 	<!-- section -->
 	<section role="main">
-	
+	<?php 
+  $post_id = get_the_ID();
+  ?>
 	<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 	
 		<!-- article -->
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<article id="post-<?php echo $post_ID; ?>" <?php post_class(); ?>>
+		
+		  
 		
 			<!-- post thumbnail -->
-			<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-					<?php the_post_thumbnail(); // Fullsize image for the single post ?>
-				</a>
+			<?php if ( has_post_thumbnail()) : 
+			  $thumbnail_id = get_post_thumbnail_id( $post_id );
+        $thumbnail = wp_get_attachment_image_src($thumbnail_id,'original', true);
+      ?>
+				<div class="headerThumb" style="background: url(<?php echo $thumbnail[0]; ?>);">
+					<?php // the_post_thumbnail(); // Fullsize image for the single post ?>
+					<div class="catsSingle">
+          <?php 
+            $post_categories = wp_get_post_categories( $post_id ); 
+            foreach($post_categories as $c){
+            	$cat = get_category( $c );
+            	echo $cat->name." ";
+            }
+          ?>
+          </div>
+				</div>
 			<?php endif; ?>
 			<!-- /post thumbnail -->
 			
-			<!-- post title -->
-			<h1>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-			</h1>
-			<!-- /post title -->
-			
-			<!-- post details -->
-			<span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
-			<span class="author"><?php _e( 'Published by', 'hodiern' ); ?> <?php the_author_posts_link(); ?></span>
-			<span class="comments"><?php comments_popup_link( __( 'Leave your thoughts', 'hodiern' ), __( '1 Comment', 'hodiern' ), __( '% Comments', 'hodiern' )); ?></span>
-			<!-- /post details -->
-			
-			<?php the_content(); // Dynamic Content ?>
-			
-			<?php the_tags( __( 'Tags: ', 'hodiern' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
-			
-			<p><?php _e( 'Categorised in: ', 'hodiern' ); the_category(', '); // Separated by commas ?></p>
-			
-			<p><?php _e( 'This post was written by ', 'hodiern' ); the_author(); ?></p>
-			
-			<?php edit_post_link(); // Always handy to have Edit Post Links available ?>
-			
-			<?php comments_template(); ?>
+			<div class="wrapper_in">
+
+  			<!-- post title -->
+  			<h1 class="bigTitle"><?php the_title(); ?></h1>
+  			<!-- /post title -->
+  		
+  			<?php 
+    			the_content(); // Dynamic Content           
+    		?>
+    		<div class="tags"><?php the_tags( '', ' ', '<br />' ); ?></div>
+    		</div>
+    		<?php
+          include('template_master.php');
+    		?>
+    		<div class="share">
+      		<span>Compárte:</span>&nbsp;
+
+      		<?php 
+        		$thepermalink = get_the_permalink(); 
+          ?>
+      		<a href="<?php echo $thepermalink; ?>" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('<?php echo $thepermalink; ?>'), 'facebook-share-dialog', 'width=626,height=436'); return false;" target="_blank"><i class="fa fa-facebook-square fa-lg"></i></a>
+      		<a href="https://plus.google.com/share?url=<?php echo urlencode($thepermalink); ?>" target="_blank"><i class="fa fa-google-plus-square fa-lg"></i></a>
+      		<a href="https://twitter.com/share?url=<?php echo urlencode($thepermalink); ?>" target="_blank"><i class="fa fa-twitter-square fa-lg"></i></a>
+      		<a href="whatsapp://send?text=<?php echo urlencode($thepermalink); ?>"  data-action="share/whatsapp/share"><i class="fa fa-whatsapp fa-lg"></i></a>
+    		</div>
 			
 		</article>
 		<!-- /article -->
@@ -60,6 +78,6 @@
 	</section>
 	<!-- /section -->
 	
-<?php get_sidebar(); ?>
+
 
 <?php get_footer(); ?>
