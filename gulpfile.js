@@ -1,17 +1,17 @@
 var gulp          = require('gulp'),
-    less          = require('gulp-less'),
+    sass          = require('gulp-sass'),
     concat        = require('gulp-concat'),
     browserSync   = require('browser-sync').create(),
     notify        = require("gulp-notify"),
     uglify        = require('gulp-uglify');
 
-gulp.task('lessComp', function() { 
-  return gulp.src('./less/style.less')
-    .pipe(less())
+gulp.task('sassComp', function() {
+  return gulp.src('./sass/style.scss')
+    .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./'));
 });
 
-gulp.task('jsConcat', function() { 
+gulp.task('jsConcat', function() {
   return gulp.src([
   './js/modernizr.min.js',
   './js/jquery-2.1.3.min.js',
@@ -28,7 +28,7 @@ gulp.task('watch', function() {
     browserSync.init({
       proxy: "htemplate.dev"
     });
-    gulp.watch('./less/*.less', ['lessComp']);
+    gulp.watch('./sass/*.scss', ['sassComp']);
     gulp.watch('./js/*.js', ['jsConcat']);
     //gulp.watch('./js/vendor/*.js', ['jsConcat']);
     gulp.watch("./**/*.php").on('change', browserSync.reload);
