@@ -42,7 +42,7 @@
 			<span class="comments"><?php comments_popup_link( __( 'Leave your thoughts', 'hodiern' ), __( '1 Comment', 'hodiern' ), __( '% Comments', 'hodiern' )); ?></span>
 			<!-- /post details -->
 			
-			<?php html5wp_excerpt('html5wp_index'); // Build your custom callback length in functions.php ?>
+			<?php //html5wp_excerpt('html5wp_index'); // Build your custom callback length in functions.php ?>
 			
 			<br class="clear">
 			

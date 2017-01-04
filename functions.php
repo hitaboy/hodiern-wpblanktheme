@@ -165,7 +165,7 @@ function enable_threaded_comments()
 \*------------------------------------*/
 
 // Add Actions
-add_action('init', 'hodiern_header_scripts'); // Add Custom Scripts to wp_head
+add_action('wp_enqueue_scripts', 'hodiern_header_scripts'); // Add Custom Scripts to wp_head
 add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
 add_action('wp_enqueue_scripts', 'hodiern_styles'); // Add Theme Stylesheet
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
